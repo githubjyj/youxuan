@@ -12,7 +12,7 @@
       关注用户体验，专注前端技术。爱前端，爱生活！我眼中的优秀的技术人员:对技术充满热情,编程是生活的一部分,主动学习新技术。"
     />
 
-    <p class="code"><a href="">项目源代码</a></p>
+    <p class="code"><a href="https://github.com/githubjyj/youxuan">项目源代码</a></p>
     <p class="csdn">
       <a href="https://blog.csdn.net/weixin_44623120?spm=1001.2014.3001.5343"
         >CSDN创作</a
