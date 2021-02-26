@@ -86,8 +86,7 @@ export default {
         })
         .then((res) => {
           if (res.data.state == "success") {
-            Toast("购买成功，请不要重复购买");
-            this.$router.push("/myshopping");
+            Toast("购买成功,购物历史中查看!");
           }
         });
     },

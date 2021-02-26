@@ -94,6 +94,8 @@ module.exports = {
     for(let i = 0;i < shopping.length;i++){
       shopping[i].time = date.formatTime('yyyy-MM-dd hh:mm:ss',results[i].time)
     }
+    shopping.reverse()
+    
     ctx.body = {
       state: "success",
       shopping,
