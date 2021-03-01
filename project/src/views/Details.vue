@@ -22,12 +22,8 @@
     <!-- 评论 -->
     <p class="comment">商品评价</p>
 
-    <ul
-      v-for="(item, index) in this.commentList"
-      :key="index"
-      class="commoent_word"
-    >
-      <li>
+    <ul class="commoent_word">
+      <li v-for="(item, index) in this.commentList" :key="index">
         <span>{{ item.comm_content }}</span>
       </li>
     </ul>
@@ -44,7 +40,7 @@
 import { Toast } from "vant";
 
 // 引入请求地址
-import baseURL from '@/utils/request.js'
+import baseURL from "@/utils/request.js";
 
 export default {
   data() {
@@ -60,7 +56,7 @@ export default {
     getId() {
       let shopping_id = this.$route.params.shopping_id;
       this.$http
-        .get(baseURL+"shopping/details", {
+        .get(baseURL + "shopping/details", {
           params: {
             shopping_id: shopping_id,
           },
@@ -79,7 +75,7 @@ export default {
 
     onSubmit() {
       this.$http
-        .get(baseURL+"shopping/setRecord", {
+        .get(baseURL + "shopping/setRecord", {
           headers: {
             Authorization: localStorage.getItem("mytoken"),
           },
@@ -93,8 +89,8 @@ export default {
             Toast("购买成功,购物历史中查看!");
           }
         })
-        .catch(()=>{
-          Toast('检查是否登录')
+        .catch(() => {
+          Toast("检查是否登录");
         });
     },
   },
@@ -121,6 +117,10 @@ export default {
 .comment {
   font-weight: bold;
   width: 1rem;
+}
+.commoent_word {
+  height: 2rem;
+  overflow: auto;
 }
 .commoent_word li {
   font-size: 20px;
