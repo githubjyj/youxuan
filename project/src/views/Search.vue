@@ -17,6 +17,9 @@
 import HistoryHot from "@/components/HistoryHot.vue";
 import { Toast } from "vant";
 
+// 引入请求地址
+import baseURL from '@/utils/request.js'
+
 export default {
   data() {
     return {
@@ -32,7 +35,7 @@ export default {
     onSearch() {
       // 查找
       this.$http
-        .get("http://localhost:3000/shopping/search", {
+        .get(baseURL+"shopping/search", {
           params: {
             value: this.value,
           },
@@ -42,7 +45,7 @@ export default {
           if (res.data.results.length > 0) {
             console.log("查询成功");
             // 查询成功之后，在商品记录中多加一个查询次数
-            this.$http.get("http://localhost:3000/shopping/addHot", {
+            this.$http.get(baseURL+"shopping/addHot", {
               params: {
                 shopping_id: res.data.results[0].shopping_id,
               },
@@ -57,7 +60,7 @@ export default {
     },
     getHot() {
       // 获取热词
-      this.$http.get("http://localhost:3000/shopping/getHot").then((res) => {
+      this.$http.get(baseURL+"shopping/getHot").then((res) => {
         console.log(res);
         this.hotListData = res.data.sortArr;
       });

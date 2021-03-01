@@ -58,6 +58,10 @@
 
 <script>
 import { Toast } from "vant";
+
+// 引入请求地址
+import baseURL from '@/utils/request.js'
+
 export default {
   data() {
     return {
@@ -76,7 +80,7 @@ export default {
   methods: {
     init() {
       this.axios({
-        url: "http://localhost:3000/shopping/getRecord",
+        url: baseURL+"shopping/getRecord",
         headers: {
           Authorization: localStorage.getItem("mytoken"),
         },
@@ -109,7 +113,7 @@ export default {
 
     pushComment() {
       this.axios({
-        url: "http://localhost:3000/shopping/comment",
+        url: baseURL+"shopping/comment",
         headers: {
           Authorization: localStorage.getItem("mytoken"),
         },

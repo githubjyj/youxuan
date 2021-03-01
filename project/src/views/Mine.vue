@@ -31,6 +31,7 @@ import { Notify } from "vant";
 
 // 全局注册
 Vue.use(Notify);
+
 export default {
   data() {
     return {

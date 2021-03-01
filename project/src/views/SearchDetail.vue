@@ -20,6 +20,9 @@
 </template>
 
 <script>
+// 引入请求地址
+import baseURL from '@/utils/request.js'
+
 export default {
   data() {
     return {
@@ -33,7 +36,7 @@ export default {
     init() {
       let shopping_id = this.$route.params.shopping_id;
       this.$http
-        .get("http://localhost:3000/shopping/details", {
+        .get(baseURL+"shopping/details", {
           params: {
             shopping_id: shopping_id,
           },

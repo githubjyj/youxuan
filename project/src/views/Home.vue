@@ -44,6 +44,9 @@ import Vue from "vue";
 import { Lazyload } from "vant";
 Vue.use(Lazyload);
 
+// 引入请求地址
+import baseURL from '@/utils/request.js'
+
 export default {
   name: "Home",
   data() {
@@ -65,7 +68,7 @@ export default {
   },
   methods: {
     init() {
-      this.$http.get("http://localhost:3000/shopping/aaa").then((res) => {
+      this.$http.get(baseURL+"shopping/aaa").then((res) => {
         console.log(res);
         if (res.data.results.length <= 6) {
           // 10条数据一页
@@ -80,7 +83,7 @@ export default {
 
     moreShow() {
       // 点击查询更多
-      this.$http.get("http://localhost:3000/shopping/aaa").then((res) => {
+      this.$http.get(baseURL+"shopping/aaa").then((res) => {
         this.list = this.list.concat(
           res.data.results.slice(this.nowPage * 6, (this.nowPage + 1) * 6)
         );

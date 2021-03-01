@@ -23,6 +23,9 @@
 </template>
 
 <script>
+// 引入请求地址
+import baseURL from '@/utils/request.js'
+
 export default {
   data() {
     return {
@@ -39,7 +42,7 @@ export default {
       console.log("开始注册");
       // 将账号密码传送给后端
       this.$http
-        .post("http://localhost:3000/users/regist", {
+        .post(baseURL+"users/regist", {
           username: this.username,
           password: this.password,
         })

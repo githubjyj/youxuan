@@ -42,6 +42,10 @@
 
 <script>
 import { Toast } from "vant";
+
+// 引入请求地址
+import baseURL from '@/utils/request.js'
+
 export default {
   data() {
     return {
@@ -56,7 +60,7 @@ export default {
     getId() {
       let shopping_id = this.$route.params.shopping_id;
       this.$http
-        .get("http://localhost:3000/shopping/details", {
+        .get(baseURL+"shopping/details", {
           params: {
             shopping_id: shopping_id,
           },
@@ -75,7 +79,7 @@ export default {
 
     onSubmit() {
       this.$http
-        .get("http://localhost:3000/shopping/setRecord", {
+        .get(baseURL+"shopping/setRecord", {
           headers: {
             Authorization: localStorage.getItem("mytoken"),
           },
@@ -88,6 +92,9 @@ export default {
           if (res.data.state == "success") {
             Toast("购买成功,购物历史中查看!");
           }
+        })
+        .catch(()=>{
+          Toast('检查是否登录')
         });
     },
   },

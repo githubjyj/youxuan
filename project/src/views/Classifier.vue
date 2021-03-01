@@ -21,8 +21,6 @@
         <van-image
           :src="this.list[0].shopping_img"
           style="display: block"
-          width="2.95rem"
-          height="2.11rem"
         />
       </div>
 
@@ -39,6 +37,9 @@
 </template>
 
 <script>
+// 引入请求地址
+import baseURL from '@/utils/request.js'
+
 export default {
   data() {
     return {
@@ -54,7 +55,7 @@ export default {
   methods: {
     init() {
       this.$http
-        .get("http://localhost:3000/shopping/book", {
+        .get(baseURL+"shopping/book", {
           params: {
             activeKey: this.activeKey + 1,
           },
@@ -67,7 +68,7 @@ export default {
     onChange() {
       // 点击不同的分类
       this.$http
-        .get("http://localhost:3000/shopping/book", {
+        .get(baseURL+"shopping/book", {
           params: {
             activeKey: this.activeKey + 1,
           },
