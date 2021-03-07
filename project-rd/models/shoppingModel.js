@@ -1,7 +1,7 @@
 const db = require("./db");
 module.exports = {
   
-  getBlogs() {
+  getShoppings() {
     return db.query(`SELECT * FROM t_shopping`);
   },
 

@@ -2,9 +2,9 @@ const model = require("../models/shoppingModel");
 const date = require("../utils/dateTimeUtil")
 
 module.exports = {
+
   async welcome(ctx) {
-    // 查询所有文章数据
-    let results = await model.getBlogs();
+    let results = await model.getShoppings();
     ctx.body = {
       state: "success",
       results,
