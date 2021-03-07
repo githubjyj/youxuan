@@ -2,7 +2,6 @@
   <div>
     <!-- 搜索框 -->
     <van-search
-      v-model="searchValue"
       disabled
       shape="round"
       placeholder="请输入搜索关键词"
@@ -36,30 +35,21 @@
     <transition name="van-slide-right">
       <router-view></router-view>
     </transition>
+    
   </div>
 </template>
 
 <script>
-import Vue from "vue";
-import { Lazyload } from "vant";
-Vue.use(Lazyload);
-
 // 引入请求地址
-import baseURL from '@/utils/request.js'
+import baseURL from "@/utils/request.js";
 
 export default {
   name: "Home",
   data() {
     return {
-      searchValue: "",
       list: [],
       moreShowBoolen: false,
       nowPage: 1,
-      // 轮播图的图片
-      images: [
-        "https://img01.yzcdn.cn/vant/apple-1.jpg",
-        "https://img01.yzcdn.cn/vant/apple-2.jpg",
-      ],
     };
   },
   components: {},
@@ -68,7 +58,7 @@ export default {
   },
   methods: {
     init() {
-      this.$http.get(baseURL+"shopping/aaa").then((res) => {
+      this.$http.get(baseURL + "shopping/aaa").then((res) => {
         console.log(res);
         if (res.data.results.length <= 6) {
           // 10条数据一页
@@ -83,7 +73,7 @@ export default {
 
     moreShow() {
       // 点击查询更多
-      this.$http.get(baseURL+"shopping/aaa").then((res) => {
+      this.$http.get(baseURL + "shopping/aaa").then((res) => {
         this.list = this.list.concat(
           res.data.results.slice(this.nowPage * 6, (this.nowPage + 1) * 6)
         );
